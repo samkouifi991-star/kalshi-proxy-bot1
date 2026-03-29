@@ -43,21 +43,16 @@ function readBody(req) {
   });
 }
 
-async function fetchKalshiMarkets() {
-  const allMarkets = [];
-  let cursor = null;
-  let pages = 0;
-
-  while (pages < 5) {
-    const params = new URLSearchParams({ limit: "200", status: "open" });
-    if (cursor) params.set("cursor", cursor);
-
-    const response = await fetch(`${KALSHI_API_BASE}/markets?${params}`, {
-      headers: {
-        Authorization: `Bearer ${KALSHI_API_KEY}`,
-        Accept: "application/json",
-      },
-    });
+const response = await fetch(
+  `https://api.elections.kalshi.com/trade-api/v2/markets?${params}`,
+  {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.API}`,
+      Accept: "application/json",
+    },
+  }
+);
 
     if (!response.ok) {
       const errorText = await response.text();
