@@ -4,8 +4,7 @@ const { BotEngine } = require("./bot/engine");
 const PORT = process.env.PORT || 3001;
 const KALSHI_API_KEY = process.env.KALSHI_API_KEY;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || "*";
-const KALSHI_API_BASE = "https://trading-api.elections.kalshi.com/trade-api/v2";
-
+const KALSHI_API_BASE = "https://api.elections.kalshi.com/trade-api/v2";
 const TENNIS_KEYWORDS = [
   "tennis", "atp", "wta", "grand slam", "roland garros",
   "wimbledon", "us open", "australian open",
