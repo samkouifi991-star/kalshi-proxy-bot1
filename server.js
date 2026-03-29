@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 const http = require("http");
 const { BotEngine } = require("./bot/engine");
 
@@ -42,7 +43,6 @@ function readBody(req) {
     });
   });
 }
-
 const response = await fetch(
   `https://api.elections.kalshi.com/trade-api/v2/markets?${params}`,
   {
